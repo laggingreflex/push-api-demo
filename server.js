@@ -1,14 +1,9 @@
 var express = require('express'),
     fs = require('fs'),
-    https = require('https'),
+    http = require('http'),
     serveStatic = require('serve-static'),
     url = require('url'),
     webPush = require('web-push');
-
-var options = {
-  pfx: fs.readFileSync('aa34f6b8-f1c5-4e32-afd7-7a5f9f0b659c.pfx'),
-  passphrase: 'password'
-};
 
 var dupe = 'true';
 
@@ -129,6 +124,6 @@ response.end();
 
 });
 
-var httpsServer = https.createServer(options, app)
+var httpsServer = http.createServer(app)
 httpsServer.listen(7000);
 console.log("Server Running on 7000.");   
